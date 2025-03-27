@@ -1,0 +1,37 @@
+{
+    "extends": "./.svelte-kit/tsconfig.json",
+    "compilerOptions": {
+        "allowJs": true,
+        "checkJs": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "sourceMap": true,
+        // this ensures that types are explicitly
+        // imported with `import type`, which is
+        // necessary as Svelte/Vite cannot
+        // otherwise compile components correctly
+        "verbatimModuleSyntax": true,
+
+        // Vite compiles one TypeScript module
+        // at a time, rather than compiling
+        // the entire module graph
+        "isolatedModules": true,
+
+        // Tell TS it's used only for type-checking
+        "noEmit": true,
+
+        // This ensures both `vite build`
+        // and `svelte-package` work correctly
+        "lib": ["esnext", "DOM", "DOM.Iterable"],
+        "moduleResolution": "bundler",
+        "module": "esnext",
+        "target": "esnext"
+    }
+    // Path aliases are handled by https://svelte.dev/docs/kit/configuration#alias
+    // except $lib which is handled by https://svelte.dev/docs/kit/configuration#files
+    //
+    // If you want to overwrite includes/excludes, make sure to copy over the relevant includes/excludes
+    // from the referenced tsconfig.json - TypeScript does not merge them in
+}

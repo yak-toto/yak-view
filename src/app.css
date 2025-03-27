@@ -1,0 +1,516 @@
+/* Yak Display Global Styles */
+
+/* Import professional fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
+
+@import 'tailwindcss';
+
+/* Color Palette and CSS Custom Properties */
+/*
+Usage guide:
+    Dark colors (primary, accent, secondary) → Text, headers, navigation bars, strong buttons
+    Midtones (mid, highlight) → Card backgrounds, borders, hover states, less-important text
+    Light (background) → Page background, large open areas for breathing space
+    Functional (success, error) → Inline alerts, form validation, status badges
+*/
+:root {
+    --yak-primary: #153243; /* Prussian blue */
+    --yak-accent: #284b63; /* Indigo dye */
+    --yak-highlight: #f0f2ed; /* Soft mint */
+    --yak-background: #eef0eb; /* Alabaster */
+    --yak-secondary: #284b63; /* Indigo dye */
+
+    /* Spacing Variables */
+    --yak-spacing-xs: 0.25rem; /* 4px */
+    --yak-spacing-sm: 0.5rem; /* 8px */
+    --yak-spacing-md: 1rem; /* 16px */
+    --yak-spacing-lg: 1.5rem; /* 24px */
+    --yak-spacing-xl: 2rem; /* 32px */
+    --yak-spacing-xxl: 2.5rem; /* 40px */
+
+    /* Border Variables */
+    --yak-border-light: 1px solid rgba(135, 118, 102, 0.2);
+    --yak-border-medium: 1px solid rgba(135, 118, 102, 0.3);
+    --yak-border-accent: 1px solid var(--yak-accent);
+
+    /* Shadow Variables */
+    --yak-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --yak-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --yak-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    /* Transition Variables */
+    --yak-transition-fast: 0.2s ease;
+    --yak-transition-medium: 0.3s ease;
+}
+
+/* Global Typography */
+body {
+    font-family: 'Roboto';
+    font-weight: 400;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: var(--yak-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Roboto';
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+.font-display {
+    font-family: 'Roboto';
+}
+
+/* Global Layout Components */
+
+/* Layout Container */
+.yak-layout-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+.yak-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: white;
+    border-bottom: 1px solid var(--yak-accent);
+}
+
+.yak-home-link {
+    @apply px-3 py-3;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--yak-primary);
+}
+
+.yak-logout-link {
+    @apply px-3 py-3;
+    text-decoration: none;
+    font-weight: bold;
+    color: #d9534f;
+}
+
+/* Content Area */
+.yak-content-area {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Sidebar Navigation */
+.yak-sidebar {
+    width: 200px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--yak-accent);
+    overflow-y: auto;
+    background-color: var(--yak-background);
+}
+
+.yak-group-link {
+    padding: var(--yak-spacing-md);
+    margin-bottom: var(--yak-spacing-xs);
+    text-decoration: none;
+    color: var(--yak-primary);
+    transition: background-color var(--yak-transition-fast);
+}
+
+.yak-group-link:hover {
+    background-color: var(--yak-highlight);
+    color: var(--yak-primary);
+}
+
+/* Main Content */
+.yak-main-content {
+    flex: 1;
+    /* padding: 20px; */
+    /* overflow-y: auto; */
+    background-color: var(--yak-background);
+}
+
+/* Table Components */
+.yak-toto-row {
+    @apply transition-all duration-200;
+}
+
+.yak-toto-row:hover {
+    background-color: var(--yak-highlight);
+}
+
+.yak-table-row-qualified {
+    background: linear-gradient(to right, rgba(54, 130, 127, 0.2), rgba(54, 130, 127, 0.1));
+}
+
+.yak-goal-diff-positive {
+    color: var(--yak-accent);
+}
+
+.yak-goal-diff-negative {
+    color: #dc2626;
+}
+
+.yak-goal-diff-zero {
+    color: var(--yak-secondary);
+}
+
+/* Dashboard Components */
+.yak-dashboard-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.yak-dashboard-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.yak-dashboard-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--yak-primary);
+}
+
+.yak-dashboard-subtitle {
+    font-size: 1.125rem;
+    color: var(--yak-secondary);
+}
+
+.yak-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.yak-stat-card {
+    background-color: white;
+    padding: var(--yak-spacing-lg);
+    border: var(--yak-border-light);
+    box-shadow: var(--yak-shadow-sm);
+    transition: box-shadow var(--yak-transition-fast);
+}
+
+.yak-stat-card:hover {
+    box-shadow: var(--yak-shadow-md);
+}
+
+.yak-stat-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    color: var(--yak-secondary);
+}
+
+.yak-stat-value {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--yak-primary);
+}
+
+.yak-rank-highlight {
+    color: var(--yak-accent);
+}
+
+.yak-rank-suffix {
+    font-size: 1.125rem;
+    margin-left: 0.25rem;
+    color: var(--yak-secondary);
+}
+
+.yak-no-rank {
+    font-size: 1.125rem;
+    color: var(--yak-secondary);
+}
+
+.yak-points-highlight {
+    color: var(--yak-accent);
+}
+
+.yak-points-unit {
+    font-size: 1.125rem;
+    margin-left: 0.25rem;
+    color: var(--yak-secondary);
+}
+
+.yak-status-card {
+    background-color: white;
+    padding: var(--yak-spacing-lg);
+    border: var(--yak-border-accent);
+    margin-bottom: var(--yak-spacing-xl);
+    background: linear-gradient(135deg, var(--yak-background), rgba(244, 237, 237, 0.5));
+}
+
+.yak-status-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--yak-primary);
+}
+
+.yak-status-message {
+    font-size: 1rem;
+    color: var(--yak-primary);
+    margin: 0;
+}
+
+.yak-actions-section {
+    text-align: center;
+}
+
+.yak-actions-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--yak-primary);
+}
+
+.yak-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--yak-spacing-md);
+    max-width: 28rem;
+    margin: 0 auto;
+}
+
+/* Base Button Component */
+.yak-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--yak-spacing-sm);
+    padding: var(--yak-spacing-md);
+    border: 2px solid var(--yak-accent);
+    text-decoration: none;
+    transition: all var(--yak-transition-fast);
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+/* Button Variants */
+.yak-button--primary {
+    background-color: white;
+    color: var(--yak-primary);
+}
+
+.yak-button--primary:hover {
+    background-color: var(--yak-accent);
+    color: white;
+}
+
+.yak-button--secondary {
+    background-color: var(--yak-accent);
+    color: white;
+}
+
+.yak-button--secondary:hover {
+    background-color: var(--yak-primary);
+    color: white;
+}
+
+/* Legacy class for backward compatibility */
+.yak-action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--yak-spacing-sm);
+    padding: var(--yak-spacing-md);
+    border: 2px solid var(--yak-accent);
+    text-decoration: none;
+    transition: all var(--yak-transition-fast);
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: white;
+    color: var(--yak-primary);
+    cursor: pointer;
+}
+
+.yak-action-button:hover {
+    background-color: var(--yak-accent);
+    color: white;
+}
+
+.yak-action-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: var(--yak-accent);
+    transition: background-color 0.2s ease;
+}
+
+.yak-action-button:hover .yak-action-icon {
+    background-color: white;
+}
+
+/* Input Components */
+.yak-input {
+    width: 100%;
+    padding: var(--yak-spacing-sm) var(--yak-spacing-md);
+    border: var(--yak-border-medium);
+    font-size: 1rem;
+    color: var(--yak-primary);
+    background-color: white;
+    transition:
+        border-color var(--yak-transition-fast),
+        box-shadow var(--yak-transition-fast);
+    outline: none;
+}
+
+.yak-input:focus {
+    border-color: var(--yak-accent);
+    box-shadow: 0 0 0 2px rgba(40, 75, 99, 0.1);
+}
+
+.yak-input:hover {
+    border-color: var(--yak-accent);
+}
+
+.yak-input::placeholder {
+    color: rgba(21, 50, 67, 0.5);
+}
+
+.yak-input:disabled {
+    background-color: var(--yak-highlight);
+    color: rgba(21, 50, 67, 0.6);
+    cursor: not-allowed;
+}
+
+/* Input Label */
+.yak-input-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: var(--yak-spacing-sm);
+    color: var(--yak-primary);
+}
+
+/* Input Group */
+.yak-input-group {
+    margin-bottom: var(--yak-spacing-lg);
+}
+
+/* Input Error State */
+.yak-input-error {
+    border-color: #dc2626;
+}
+
+.yak-input-error:focus {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+}
+
+.yak-input-error-message {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #dc2626;
+}
+
+/* Input Success State */
+.yak-input-success {
+    border-color: #059669;
+}
+
+.yak-input-success:focus {
+    border-color: #059669;
+    box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.1);
+}
+
+/* Error Message Card */
+.yak-error-card {
+    margin-bottom: var(--yak-spacing-lg);
+    padding: var(--yak-spacing-md);
+    border: 1px solid #fecaca;
+    background-color: #fef2f2;
+    color: #dc2626;
+    text-align: center;
+}
+
+/* Login Card */
+.yak-login-card {
+    background-color: white;
+    box-shadow: var(--yak-shadow-lg);
+    padding: var(--yak-spacing-xl);
+    border: var(--yak-border-medium);
+}
+
+/* Table Components */
+.yak-table {
+    background-color: white;
+    box-shadow: var(--yak-shadow-lg);
+    border: var(--yak-border-medium);
+    overflow: hidden;
+}
+
+.yak-table-header {
+    background-color: var(--yak-background);
+}
+
+.yak-table-header th {
+    color: var(--yak-primary);
+}
+
+.yak-section-title {
+    @apply text-xl font-bold;
+
+    margin-bottom: var(--yak-spacing-lg);
+    padding-bottom: var(--yak-spacing-sm);
+    border-bottom: 2px solid var(--yak-accent);
+    color: var(--yak-primary);
+}
+
+.yak-page-title {
+    @apply text-2xl font-bold;
+    text-align: center;
+    margin-bottom: var(--yak-spacing-lg);
+    color: var(--yak-primary);
+}
+
+.yak-score-input {
+    width: 4rem;
+    text-align: center;
+    border: var(--yak-border-medium);
+    font-weight: 700;
+    color: var(--yak-accent);
+    transition: border-color var(--yak-transition-fast);
+}
+
+.yak-score-input:focus {
+    border-color: var(--yak-accent);
+    outline: none;
+}
+
+.yak-score-input:read-only {
+    background-color: rgba(135, 118, 102, 0.1);
+    cursor: not-allowed;
+}
+
+.yak-points-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.125rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background-color: var(--yak-highlight);
+    color: var(--yak-primary);
+}
