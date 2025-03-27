@@ -1,0 +1,38 @@
+{
+    "name": "yak-display-svelte",
+    "private": true,
+    "version": "0.0.1",
+    "type": "module",
+    "backendApiVersion": "0.56.1",
+    "scripts": {
+        "dev": "vite dev",
+        "build": "vite build",
+        "preview": "vite preview",
+        "prepare": "svelte-kit sync || echo ''",
+        "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+        "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+        "format": "prettier --write .",
+        "lint": "prettier --check .",
+        "typecheck": "tsc --noEmit",
+        "generate-client": "openapi-ts"
+    },
+    "devDependencies": {
+        "@hey-api/openapi-ts": "0.80.6",
+        "@sveltejs/adapter-auto": "^6.0.0",
+        "@sveltejs/adapter-node": "^5.2.13",
+        "@sveltejs/kit": "^2.22.0",
+        "@sveltejs/vite-plugin-svelte": "^6.0.0",
+        "@tailwindcss/vite": "^4.1.11",
+        "prettier": "^3.4.2",
+        "prettier-plugin-organize-imports": "^4.2.0",
+        "prettier-plugin-svelte": "^3.3.3",
+        "svelte": "^5.0.0",
+        "svelte-check": "^4.0.0",
+        "tailwindcss": "^4.1.11",
+        "typescript": "^5.0.0",
+        "vite": "^7.0.4"
+    },
+    "dependencies": {
+        "jwt-decode": "4.0.0"
+    }
+}
